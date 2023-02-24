@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/screens/loginscreen.dart';
 
-void main() {
+void main() async {
+  var Firebase;
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
