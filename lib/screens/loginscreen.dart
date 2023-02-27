@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../Constants.dart' as Constants;
 import '../components/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'Mainscreen.dart';
+import '../Network/Location.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -16,8 +16,19 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 
   late String email, password;
-  int myvar=1;
+  int myvar=0;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    apiCall();
+  }
+void apiCall() async{
+    var location = await determinePosition();
+    myvar = await Constants.apiInstance.getLocation(
+        location.latitude.toString(), location.longitude.toString());
+}
 
 
   @override
