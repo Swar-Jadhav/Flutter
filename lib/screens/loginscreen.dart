@@ -16,7 +16,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 
   late String email, password;
-  int myvar=0;
+  int myvar=1;
 
 
 
